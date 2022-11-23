@@ -1,0 +1,18 @@
+schema {
+    query: QueryRoot
+}
+
+type QueryRoot {
+    greeting: Greeting
+    greeter: Greeter
+}
+
+type Greeting {
+    id: Bytes32! @unique
+    greeting: Bytes32!
+}
+
+type Greeter {
+    id: ID!
+    greeter: Address!
+}
