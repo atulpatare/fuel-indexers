@@ -1,7 +1,6 @@
 namespace: greetings
 identifier: greetings
-contract: 0xdc5ddf77efc390eb143beded411e2ee8320cf3e44f7207d83b3f97dd9c872055
-start_block: 0
+contract: 0x45d1b231221193b6542b4f56f4f0cfdb4aea900aaf7d684b4dc7a38a0d0d0f16
 abi: ../contracts/out/debug/contracts-abi.json
 graphql_schema: ../fuel-indexers/greetings/indexer/schema/schema.graphql
 module:

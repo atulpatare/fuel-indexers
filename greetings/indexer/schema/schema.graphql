@@ -9,7 +9,7 @@ type QueryRoot {
 
 type Greeting {
     id: ID!
-    greeting: Bytes32!
+    greeting: Int8!
 }
 
 type Greeter {

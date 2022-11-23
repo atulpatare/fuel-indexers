@@ -74,9 +74,11 @@ async fn main() -> std::io::Result<()> {
     let contract_methods = contract.methods();
 
     let greetings = SizedAsciiString::try_from("Hello atul").unwrap();
-    let greet_result = contract_methods.greet(1, greetings).tx_params(tx_params).call().await;
+    let greet_result = contract_methods.greet(1, greetings.clone()).tx_params(tx_params).call().await;
     assert_eq!(greet_result.is_err(), false, "Greet function call failed");
     greet_result.as_ref().unwrap();
+
+    let _ = contract_methods.greet(2, greetings.clone()).tx_params(tx_params).call().await;
 
     Ok(())
 }
