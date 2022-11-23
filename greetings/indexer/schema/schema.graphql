@@ -1,0 +1,18 @@
+schema {
+    query: QueryRoot
+}
+
+type QueryRoot {
+    greeting: Greeting
+    greeter: Greeter
+}
+
+type Greeting {
+    id: ID!
+    greeting: Int8!
+}
+
+type Greeter {
+    id: ID!
+    greeter: Address!
+}

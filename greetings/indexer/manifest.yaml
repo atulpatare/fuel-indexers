@@ -1,0 +1,7 @@
+namespace: greetings
+identifier: greetings
+contract: 0x45d1b231221193b6542b4f56f4f0cfdb4aea900aaf7d684b4dc7a38a0d0d0f16
+abi: ../contracts/out/debug/contracts-abi.json
+graphql_schema: ../fuel-indexers/greetings/indexer/schema/schema.graphql
+module:
+  wasm: ../fuel-indexers/greetings/indexer/target/wasm32-unknown-unknown/release/greetings.wasm
