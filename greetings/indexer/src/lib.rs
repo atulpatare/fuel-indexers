@@ -1,8 +1,11 @@
 extern crate alloc;
+extern crate core;
 
+use core::str::FromStr;
 use fuel_indexer_macros::indexer;
 use fuel_indexer_plugin::types::*;
 use fuels_core::*;
+use fuels_core::types::SizedAsciiString;
 
 pub fn get_zero_address() -> Address {
     Address::new([0u8; 32])
@@ -36,11 +39,24 @@ pub fn get_u64_from_string_vec(values: Vec<String>) -> u64 {
     u64::from_le_bytes(buff)
 }
 
-// noinspection RsUnresolvedReference
+pub fn get_bytes_from_str(val: SizedAsciiString<10>) -> Bytes32 {
+    Bytes32::from_str(&*val.to_string()).unwrap()
+}
+
 #[indexer(manifest = "../fuel-indexers/greetings/indexer/manifest.yaml")]
 pub mod nft_indexer_module {
 
     pub fn handle_greeting_event(event: NewGreeting) {
-
+        let NewGreeting { id, greeting } = event;
+        let greeting_entity = match Greeting::load(id) {
+            Some(g) => g,
+            None => {
+                Greeting {
+                    id,
+                    greeting: crate::get_bytes_from_str(greeting),
+                }
+            }
+        };
+        greeting_entity.save();
     }
 }

@@ -8,7 +8,7 @@ type QueryRoot {
 }
 
 type Greeting {
-    id: Bytes32! @unique
+    id: ID!
     greeting: Bytes32!
 }
 

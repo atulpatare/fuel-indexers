@@ -1,23 +1,22 @@
 contract;
 
-use std::hash::sha256;
 use std::logging::log;
 use std::auth::msg_sender;
 
 abi Greeting {
-    fn greet(greeting: str[10]);
+    fn greet(id: u64, greeting: str[10]);
 }
 
 struct NewGreeting {
-    greeting: b256,
+    id: u64,
+    greeting: str[10],
 }
 
 impl Greeting for Contract {
-    fn greet(greeting: str[10]) {
-
-        // logging the hash of the greeting
+    fn greet(id: u64, greeting: str[10]) {
         log(NewGreeting {
-            greeting: sha256(greeting),
+            id,
+            greeting,
         });
 
         // logging greeter
