@@ -1,0 +1,5 @@
+namespace: receipts
+identifier: receipts
+graphql_schema: ../fuel-indexers/receipts/schema/schema.graphql
+module:
+  wasm: ../fuel-indexers/receipts/target/wasm32-unknown-unknown/release/greetings.wasm
